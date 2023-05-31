@@ -1,0 +1,17 @@
+#include <Servo.h>
+
+const int potentiometerPin = A0;
+const int servoPin = 9;
+
+Servo servo;
+
+void setup() {
+    servo.attach(servoPin);
+}
+
+void loop() {
+    int potentiometerValue = analogRead(potentiometerPin);
+    int angle = map(potentiometerValue, 0, 1023, 0, 180);
+    servo.write(angle);
+    delay(15);
+}
